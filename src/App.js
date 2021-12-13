@@ -2,13 +2,15 @@
 import { ThemeProvider } from '@mui/styles';
 import './App.css';
 import Header from './components/Header';
-import {theme} from "./theme";
+import HomePage from './pages/HomePage';
+
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider>
         <Header/>
+        <HomePage/>
       </ThemeProvider>
     </div>
   );
