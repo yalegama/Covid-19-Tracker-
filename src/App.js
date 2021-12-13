@@ -1,10 +1,15 @@
 
+import { ThemeProvider } from '@mui/styles';
 import './App.css';
+import Header from './components/Header';
+import {theme} from "./theme";
 
 function App() {
   return (
     <div className="App">
-      This is covid 19 tracker
+      <ThemeProvider>
+        <Header/>
+      </ThemeProvider>
     </div>
   );
 }

@@ -2,8 +2,16 @@
 
 ### `npx create-react-app covid19-tracker`
 
-## Available Scripts
+# Available Links
 
-In the project directory, you can run:
+### disease.sh Docs - An open API for disease-related statistics 3.0.0 https://disease.sh/docs/
 
-### `npm start`
+<br><br><br>
+
+# Available Scripts
+
+### (01) `npm install @material-ui/core`
+
+### (02) `npm install @material-ui/icons`
+
+### (03) `npm install @material-ui/styles`
