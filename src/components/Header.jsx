@@ -1,4 +1,4 @@
-import { AppBar, Box, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography} from '@material-ui/core'
+import { AppBar, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import React, { useState } from 'react'
 
@@ -30,18 +30,27 @@ const useStyles=makeStyles((theme)=>({
         width:200,
         borderRadius:10,
     },select:{
-        height:35
+        height:35,
     },
     inputLabel:{
         marginLeft:70,
-    }
+    },
 }))
 
 
 function Header() {
 
 
-    const [countries, setcountries] = useState(['US','UK','IND','LK'])
+    const [contries, setcontries] = useState(['US','UK','IND','LK'])
+/**request url
+ * 
+ * https://disease.sh/v3/covid-19/countries
+ */
+           
+        
+
+
+
 
 
     const classes=useStyles();
@@ -60,8 +69,9 @@ function Header() {
           className={classes.select}
           label="Age"
         >
-            {countries.map((country)=>(
-                <MenuItem value={country}> {country} </MenuItem>
+
+            {contries.map((country)=>(
+                <MenuItem value={country}>{country}</MenuItem>
             ))}
 
         </Select>
