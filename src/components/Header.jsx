@@ -1,12 +1,14 @@
 import { AppBar, Box, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
-import React from 'react'
+import React, { useState } from 'react'
 
 
 const useStyles=makeStyles((theme)=>({
     appBar:{
         backgroundColor:'#00008B',
         position:'static',
+        height:100,
+        justifyContent:'center'
 
     },
     toolBar:{
@@ -37,6 +39,11 @@ const useStyles=makeStyles((theme)=>({
 
 
 function Header() {
+
+
+    const [countries, setcountries] = useState(['US','UK','IND','LK'])
+
+
     const classes=useStyles();
     return (
         <AppBar className={classes.appBar}>
@@ -53,9 +60,10 @@ function Header() {
           className={classes.select}
           label="Age"
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+            {countries.map((country)=>(
+                <MenuItem value={country}> {country} </MenuItem>
+            ))}
+
         </Select>
       </FormControl>
     
