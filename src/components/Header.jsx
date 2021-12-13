@@ -40,7 +40,8 @@ const useStyles=makeStyles((theme)=>({
 
 function Header() {
 
-    const [contries, setcontries] = useState(['USA','UK'])
+    const [countries, setcountries] = useState([]);
+    const [selectCountry, setselectCountry] = useState('Select Country')
 
 /**request url
  * 
@@ -48,6 +49,32 @@ function Header() {
  */
 
 
+useEffect(()=>{
+    const getContriesData=async()=>{
+        await fetch("https://disease.sh/v3/covid-19/countries")
+        .then((response)=>response.json())
+        .then((data)=>{
+            const countries=data.map((country)=>(
+                {
+                    name:country.country,
+                    value:country.countryInfo.iso2,
+                    flag:country.countryInfo.flag
+                }
+            ));
+            setcountries(countries)
+        })
+    }
+    getContriesData()
+},[]);
+
+
+const onCountryChange=(event)=>{
+    const countryCode=event.target.value;
+
+    console.log(countryCode);
+
+    setselectCountry(countryCode)
+}
 
 
     const classes=useStyles();
@@ -61,15 +88,16 @@ function Header() {
                     Covid 19 Tracker
                 </Typography>
       <FormControl className={classes.formControl}>
-        <InputLabel className={classes.inputLabel}>Country</InputLabel>
+        <InputLabel className={classes.inputLabel}>{selectCountry}</InputLabel>
         <Select
+        onChange={onCountryChange}
           className={classes.select}
-          label="Age"
+          value={selectCountry}
         >
 
             {
-                contries.map((country)=>(
-                    <MenuItem value={country}>{country}</MenuItem>
+                countries.map((country)=>(
+                    <MenuItem value={country.value}> <img height={15} width={25} src={country.flag} alt="" /> {country.name}  </MenuItem>
                 ))
             }
 
