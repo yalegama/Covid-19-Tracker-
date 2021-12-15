@@ -6,7 +6,13 @@ const useStyles=makeStyles((theme)=>({
     card:{ 
         webkitBoxShadow: "0px 0px 26px -4px #000000",
     boxShadow: "0px 0px 26px -4px #000000",
-    width:"20%"
+    width:"20%",
+    
+    [theme.breakpoints.down('sm')]:{
+        width:"70%",
+        margin:10,
+        marginLeft:100
+    }
     },
     cases:{
         fontWeight:'bold'
