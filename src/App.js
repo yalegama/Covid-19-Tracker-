@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider>
-        <Header/>
         <HomePage/>
       </ThemeProvider>
     </div>
